@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "NC"
+  "cli": {
+    "analytics": false
+  }
 }
