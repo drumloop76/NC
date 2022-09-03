@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { EmergencyList } from './emergency-list.model';
 
 const baseURL = '/api/getAllEmergencies';
 
@@ -11,7 +12,9 @@ export class EmergencyService {
 
   constructor(private http: HttpClient) { }
 
-  getAllEmergencies(): Observable<any> {
-    return this.http.get(`${baseURL}`)
+  getAllEmergencies(): Observable<EmergencyList> {
+    return this.http.get(`${baseURL}`).pipe(map((data: any) => {
+      return new EmergencyList(data);
+    }))
   }
 }
