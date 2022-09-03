@@ -20,11 +20,10 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
     
     request = request.clone({
       setHeaders: {
-        'Access-Control-Allow-Origin': "*",
         Authorization: `Bearer ${auth_token}`
       }
-    })
-    // console.log(request)
+    })    
     return next.handle(request);
   }
+  
 }

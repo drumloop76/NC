@@ -6,9 +6,9 @@
             <tr>
                 <th pSortableColumn="device">Device serial <p-sortIcon field="device"></p-sortIcon></th>
                 <th pSortableColumn="emergency">Emergency ID <p-sortIcon field="emergency"></p-sortIcon></th>
-                <th pSortableColumn="emergency">Time <p-sortIcon field="time"></p-sortIcon></th>
-                <th pSortableColumn="holder">First Name <p-sortIcon field="firstName"></p-sortIcon></th>
-                <th pSortableColumn="holder">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
+                <th pSortableColumn="time">Time <p-sortIcon field="time"></p-sortIcon></th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th></th>
             </tr>
         </ng-template>
@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ em.device.serialNumber }}</td>
                 <td>{{ em.emergency.emergencyId }}</td>
-                <td>{{ em.emergency.requestTime | date:"EE, MMM d, y, h:mm:ss a zzzz" }}</td>
+                <td>{{ em.emergency.requestTime | date:"EE, MMM d, y, h:mm:ss" }}</td>
                 <td>{{ em.holder.firstName }}</td>
                 <td>{{ em.holder.lastName }}</td>
                 <td><button pButton type="button" label="Delete" class="p-button-sm"></button></td>

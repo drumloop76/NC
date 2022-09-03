@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmergencyList } from 'src/app/service/emergency-list.model';
+import { EmergencyList } from 'src/app/main/model/emergency-list.model';
 import { EmergencyService } from 'src/app/service/emergency.service';
 import { SortEvent } from 'primeng/api';
 
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
       let result = null;
 
       if(e.field! === 'device') {
+        console.log(e.field!)
         value1 = x1.serialNumber
         value2 = x2.serialNumber
       }
@@ -41,19 +42,10 @@ export class HomeComponent implements OnInit {
         value2 = x2.emergencyId
       }
       if(e.field! === 'time') {
-        value1 = x1.requestTime
-        value2 = x2.requestTime
+        value1 = data1.emergency.requestTime
+        value2 = data2.emergency.requestTime
       }
-      if(e.field! === 'firstName') {
-        value1 = x1.firstName
-        value2 = x2.firstName
-      }
-      if(e.field! === 'lastName') {
-        value1 = x1.lastName
-        value2 = x2.lastName
-      }
-
-      // console.log(e.field!, value1)
+      
       if (value1 == null && value2 != null) result = -1;
       else if (value1 != null && value2 == null) result = 1;
       else if (value1 == null && value2 == null) result = 0;
@@ -65,4 +57,5 @@ export class HomeComponent implements OnInit {
       return (e.order! * result);
     });
   }
+
 }

@@ -1,4 +1,4 @@
-import { EmergencyMain } from "../main/model/emergency.model";
+import { EmergencyMain } from "./emergency.model";
 
 export class EmergencyList {
     content: EmergencyMain[];
@@ -6,4 +6,5 @@ export class EmergencyList {
     constructor(obj?: any) {
         this.content = obj && obj.content && obj.content.map((elem: any) => new EmergencyMain(elem)) || [];
     }
+    
 }
